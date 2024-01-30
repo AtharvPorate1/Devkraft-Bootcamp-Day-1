@@ -1,0 +1,33 @@
+.computer-deck{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.user-deck{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.gamecanvas{
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    background-color: aqua;
+}
+
+
+.card{
+    border: 1px black solid; 
+    display: grid;
+    place-items: center;     
+}
+
+.move-up {
+    transform: translateY(-50px); /* Adjust the value as needed */
+  }
+  
+  .move-down {
+    transform: translateY(50px); /* Adjust the value as needed */
+  }
+
