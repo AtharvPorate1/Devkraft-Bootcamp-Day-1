@@ -24,10 +24,10 @@
 }
 
 .move-up {
-    transform: translateY(-50px); /* Adjust the value as needed */
+    transform: translateY(-50px);
   }
   
   .move-down {
-    transform: translateY(50px); /* Adjust the value as needed */
+    transform: translateY(50px);
   }
 

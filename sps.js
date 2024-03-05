@@ -1,4 +1,3 @@
-// Select all elements with the class "card"
 const cards = document.querySelectorAll('.card');
 
 const rock = document.querySelector('#user-rock');
@@ -9,27 +8,24 @@ const compRock = document.querySelector('#computer-rock');
 const compPaper = document.querySelector('#computer-paper');
 const compScissors = document.querySelector('#computer-scissors');
 
-//code for moving the cards
-const moveUpCard = (card) => {
-    card.classList.add('move-up'); // Add the class for moving up
 
-    // Set a timeout to remove the class after 1 second (adjust as needed)
+const mousepos = document.querySelector('#mousepos');
+
+
+
+const moveUpCard = (card) => {
+    card.classList.add('move-up');
     setTimeout(() => {
         card.classList.remove('move-up');
     }, 1000);
 }
 
 const moveDownCard = (card) => {
-    card.classList.add('move-down'); // Add the class for moving down
-
-    // Set a timeout to remove the class after 1 second (adjust as needed)
+    card.classList.add('move-down');
     setTimeout(() => {
         card.classList.remove('move-down');
     }, 1000);
 }
-
-
-
 
 const computerChoice = () => {
     const choices = ['rock', 'paper', 'scissors'];
@@ -39,104 +35,57 @@ const computerChoice = () => {
 
 const selectRock = () => {
     const computerMove = computerChoice();
+    moveUpCard(rock);
     if (computerMove === 'rock') {
-        console.log('tie', computerChoice);
+        console.log('Tie');
+        mousepos.innerHTML = "Tie";
     } else if (computerMove === 'paper') {
-        console.log('lose', computerChoice);
+        moveDownCard(compPaper);
+        console.log('You Lose');
+        mousepos.innerHTML = "You Lose";
     } else {
-        console.log('win', computerChoice);
+        moveDownCard(compScissors);
+        console.log('You Win');
+        mousepos.innerHTML = "You Win";
     }
 }
 
 const selectPaper = () => {
     const computerMove = computerChoice();
+    moveUpCard(paper);
     if (computerMove === 'rock') {
-        console.log('win', computerMove);
+        moveDownCard(compRock);
+        console.log('You Win');
+        mousepos.innerHTML = "You Win";
     } else if (computerMove === 'paper') {
-        console.log('tie', computerMove);
+        console.log('Tie');
+        mousepos.innerHTML = "Tie";
     } else {
-        console.log('lose', computerMove);
+        moveDownCard(compScissors);
+        console.log('You Lose');
+        mousepos.innerHTML = "You Lose";
     }
 }
+
 
 const selectScissors = () => {
     const computerMove = computerChoice();
-    moveUpCard(scissors)
+    moveUpCard(scissors);
     if (computerMove === 'rock') {
         moveDownCard(compRock);
-        console.log('lose');
+        console.log('You Lose');
+        mousepos.innerHTML = "You Lose";
     } else if (computerMove === 'paper') {
         moveDownCard(compPaper);
-        console.log('win');
+        console.log('You Win');
+        mousepos.innerHTML = "You Win";
     } else {
         moveDownCard(compScissors);
-        console.log('tie');
+        console.log('Tie');
+        mousepos.innerHTML = "Tie";
     }
 }
 
-
-rock.addEventListener('click',()=> selectRock());
-paper.addEventListener('click',()=> selectPaper());
-scissors.addEventListener('click',()=> selectScissors());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const Winner = document.querySelector('#mouse-pos');
-
-// Use a for loop to add a click event listener to each card
-// for (let i = 0; i < cards.length; i++) {
-//   cards[i].addEventListener('click', function() {
-//     // Get the name attribute of the clicked card's image
-//     const cardName = this.querySelector('img').getAttribute('name');
-
-//     // Log or use the cardName as needed
-//     console.log('Card Name:', cardName);
-//     userMove(cardName)
-//   });
-
-
-// }
-
-
-// const userMove = (cardName) => {
-//   const computerMove = computerChoice();
-//   const winner = getWinner(cardName, computerMove);
-//   const message = `You picked ${cardName}. Computer picked ${computerMove}. ${winner}`;
-//   console.log(message);
-//     Winner.innerHTML = message;
-// }
-
-// const computerChoice = () => {
-//   const choices = ['rock', 'paper', 'scissors'];
-//   const randomIndex = Math.floor(Math.random() * choices.length);
-//   return choices[randomIndex];
-// }
-
-// const getWinner = (userMove, computerMove) => {
-//     if (userMove === computerMove) {
-//         return 'It\'s a tie!';
-//     } else if (userMove === 'user-rock' && computerMove === 'paper') {
-//         return 'Computer wins!';
-//     } else if (userMove === 'user-paper' && computerMove === 'scissors') {
-//         return 'Computer wins!';
-//     } else if (userMove === 'user-scissors' && computerMove === 'rock') {
-//         return 'Computer wins!';
-//     } else {
-//         return 'You win!';
-//     }
-// }
-
-
-
+rock.addEventListener('click', selectRock);
+paper.addEventListener('click', selectPaper);
+scissors.addEventListener('click', selectScissors);
