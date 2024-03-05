@@ -9,7 +9,7 @@ const compPaper = document.querySelector('#computer-paper');
 const compScissors = document.querySelector('#computer-scissors');
 
 
-const mousepos = document.querySelector('#mousepos');
+const result = document.querySelector('#result');
 
 
 
@@ -38,15 +38,15 @@ const selectRock = () => {
     moveUpCard(rock);
     if (computerMove === 'rock') {
         console.log('Tie');
-        mousepos.innerHTML = "Tie";
+        result.innerHTML = "Tie";
     } else if (computerMove === 'paper') {
         moveDownCard(compPaper);
         console.log('You Lose');
-        mousepos.innerHTML = "You Lose";
+        result.innerHTML = "You Lose";
     } else {
         moveDownCard(compScissors);
         console.log('You Win');
-        mousepos.innerHTML = "You Win";
+        result.innerHTML = "You Win";
     }
 }
 
@@ -56,14 +56,14 @@ const selectPaper = () => {
     if (computerMove === 'rock') {
         moveDownCard(compRock);
         console.log('You Win');
-        mousepos.innerHTML = "You Win";
+        result.innerHTML = "You Win";
     } else if (computerMove === 'paper') {
         console.log('Tie');
-        mousepos.innerHTML = "Tie";
+        result.innerHTML = "Tie";
     } else {
         moveDownCard(compScissors);
         console.log('You Lose');
-        mousepos.innerHTML = "You Lose";
+        result.innerHTML = "You Lose";
     }
 }
 
@@ -74,15 +74,15 @@ const selectScissors = () => {
     if (computerMove === 'rock') {
         moveDownCard(compRock);
         console.log('You Lose');
-        mousepos.innerHTML = "You Lose";
+        result.innerHTML = "You Lose";
     } else if (computerMove === 'paper') {
         moveDownCard(compPaper);
         console.log('You Win');
-        mousepos.innerHTML = "You Win";
+        result.innerHTML = "You Win";
     } else {
         moveDownCard(compScissors);
         console.log('Tie');
-        mousepos.innerHTML = "Tie";
+        result.innerHTML = "Tie";
     }
 }
 
